@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\mg602\\.nuget\\packages\\": {}
+    "C:\\Users\\ASama\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mg602\\Desktop\\segundawebprogramacion1\\retoProgramacion1\\retoProgramacion1.csproj",
+      "projectUniqueName": "E:\\UNIVERSIDAD\\CICLOS\\CICLO 6(2024-I)\\PROGRAMACION I\\1er Ejercicio\\RetodeProgramacion1\\retoProgramacion1.csproj",
       "projectName": "retoProgramacion1",
-      "projectPath": "C:\\Users\\mg602\\Desktop\\segundawebprogramacion1\\retoProgramacion1\\retoProgramacion1.csproj",
-      "packagesPath": "C:\\Users\\mg602\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mg602\\Desktop\\segundawebprogramacion1\\retoProgramacion1\\obj\\",
+      "projectPath": "E:\\UNIVERSIDAD\\CICLOS\\CICLO 6(2024-I)\\PROGRAMACION I\\1er Ejercicio\\RetodeProgramacion1\\retoProgramacion1.csproj",
+      "packagesPath": "C:\\Users\\ASama\\.nuget\\packages\\",
+      "outputPath": "E:\\UNIVERSIDAD\\CICLOS\\CICLO 6(2024-I)\\PROGRAMACION I\\1er Ejercicio\\RetodeProgramacion1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mg602\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ASama\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
