@@ -9,7 +9,7 @@
         <div class="col-md-6">
             <form asp-controller="Login" asp-action="Index" method="post">
                 <div class="form-group">
-                    <label asp-for="Usuario" class="control-label"></label>
+                    <label asp-for="Usuario" class="control-label" style="color:black;"></label>
                     <input asp-for="Usuario" class="form-control" />
                     <span asp-validation-for="Usuario" class="text-danger"></span>
                 </div>
@@ -20,12 +20,13 @@
                 </div>
                 <br>
                 <div class="form-group text-center">
-                    <button type="submit" class="btn btn-primary bg-dark">Enviar</button>
+                    <button type="submit" class="btn btn-primary bg-dark">Iniciar Sesion</button>
                 </div>
             </form>
             <h1>@ViewData["Message"]</h1>
-            <div>
-                <a asp-action="Index">Back to List</a>
+                <div style="text-align: center;position: relative;top: 10px;">
+                <h5>¿Aún no tienes cuenta? <a style="color: black;" asp-action="Registrate">Registrate</a></h5>
+            </div>
             </div>
         </div>
     </div>
