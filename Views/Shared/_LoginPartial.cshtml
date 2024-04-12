@@ -2,7 +2,7 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-<ul class="navbar-nav">
+
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="nav-item">
@@ -15,7 +15,17 @@
     </li>
 }
 else
-{
-    
+{   <li class="nav-item bpr" style="height: 40px; margin-left: 740px; margin-right: 10px;">    
+        <a style="height: 40px;" class="nav-link text-dark bpn" asp-controller="Home" asp-action="privacy">
+            <img style="width: 30px; margin-top: -5px;" class="bpg"  src="~/images/carrito.png" alt="carrito"></a>    
+    </li>        
+    <li class="nav-item bpr" >
+        
+        <a style="" class="nav-link text-dark fw-bold" asp-area="Identity" asp-page="/Account/Register">REGISTER</a>
+        
+    </li>
+    <li class="nav-item bpr">
+        <a class="nav-link text-dark fw-bold" asp-area="Identity" asp-page="/Account/Login">LOGIN</a>
+    </li>
 }
-</ul>
+
