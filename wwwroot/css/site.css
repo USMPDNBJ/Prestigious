@@ -21,6 +21,17 @@ body {
   margin-bottom: 60px;
 }
 
+/*
+.bpr{
+  border: 1px solid red;
+}
+.bpn{
+  border: 1px solid black;
+}
+.bpg{
+  border: 1px solid green;
+}
+*/
 
 .elemento {
   opacity: 0; /* Elemento inicialmente oculto */
