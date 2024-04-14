@@ -20,16 +20,8 @@ html {
 body {
   margin-bottom: 60px;
 }
-/*
-.bpr{
-  border: 1px solid red;
-}
-.bpn{
-  border: 1px solid black;
-}
-.bpg{
-  border: 1px solid green;
-}*/
+
+
 .elemento {
   opacity: 0; /* Elemento inicialmente oculto */
   animation-name: aparecer;
@@ -54,29 +46,47 @@ body {
     transform: translateY(0); /* Sin desplazamiento al final */
   }
 }
-@keyframes aparecer2 {
-  0% {
-    opacity: 0;
-    transform: translateY(50px); /* Desplazamiento inicial hacia abajo */
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0); /* Sin desplazamiento al final */
-  }
-}
 
 .overlay {
   margin-left: 55%;
-  margin-top: 20%;
+  margin-top: 10%;
   width: 40%;
   
 }
 
 #fondox{
-  transition: opacity 0s ease-in-out;
+
   animation: fadeAnimation 7s infinite;
 }
 @keyframes fadeAnimation {
   0%, 100% { opacity: 0; }
-  20%, 80% { opacity: 1; }
+  30%, 70% { opacity: 1; }
+}
+.navi {
+  padding-top: 4.6%;
+}
+
+@media screen and (max-width: 767px) {
+  .navi {
+    padding-top: 9%;
+  }
+}
+@media screen and (max-width: 300px) {
+  .navi {
+    padding-top: 13%;
+  }
+}
+@media screen and (max-width: 250px) {
+  .navi {
+    padding-top: 26%;
+  }
+}
+
+body::-webkit-scrollbar{
+	width: 10px;
+}
+
+body::-webkit-scrollbar-thumb{
+	background: #000000; 
+	border-radius: 8px;
 }
