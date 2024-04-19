@@ -1,0 +1,36 @@
+@model IEnumerable<Prestigious.Models.Producto>
+@{
+    ViewData["Title"] = "Catalogo";
+}
+<div style="">
+        <img class="" style="width: 100%;" src="~/images/catalogo.png" alt="">
+</div>
+
+  <div class="container">
+    <h1>@ViewData["Message"]</h1>
+    <div class="row">
+      <div class="col">
+        <div id="products" class="mb-3">
+          <div class="row">
+            @foreach (var item in Model) {
+            <div class="col-lg-4 col-sm-6" >
+              <div class="card mb-3 carA">
+                <div class="card-body">
+                  <div class="card-img-actions">
+                      <img src="@item.ImageURL" class="d-block image-fit w-100">
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title  text-uppercase" >@Html.DisplayFor(modelItem => item.Name)</h5>
+                  <p class="card-text">€ @Html.DisplayFor(modelItem => item.Price)</p>
+                  <a class="btn btn-dark btnCat" asp-action="Add" asp-route-id="@item.Id">Add</a>
+                  <a class="btn btn-dark btnCat" asp-action="Details" asp-route-id="@item.Id">View</a>
+                </div>
+              </div>
+            </div>
+            }
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
