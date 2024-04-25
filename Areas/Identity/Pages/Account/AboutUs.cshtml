@@ -1,0 +1,85 @@
+@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "About us";
+}
+
+<h1>@ViewData["Title"]</h1>
+<div class="row">
+    <div class="col-md-4">
+        <section>
+          <div class="texto-encabezado text-center">
+            <div class="container">
+                <h1 class="display-4 wow bounceIn">Nosotros</h1>
+                <p class="wow bounceIn" data-wow-delay=".3s">¡Bienvenidos a nuestra exclusiva tienda de ropa Old Money!</p>
+            </div>
+        </div>
+    </section>
+    <main class="py-1">
+        <div class="container">
+            <div class="row">
+                <article class="col-md-8">
+                                <div id="tab-mision" class="collapse show" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <p>
+                                            En Prestigious, nos enorgullecemos de ofrecer una experiencia única para aquellos que buscan la elegancia y el estilo atemporal de la alta
+                                            sociedad. Inspirados por la opulencia y el refinamiento de las eras pasadas, hemos reunido una cuidadosa selección de prendas y accesorios
+                                            que encarnan el lujo discreto y la sofisticación que caracterizan a la vieja guardia.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <h4 class="mb-0">
+                                        <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#tab-vision" aria-controls="collapseTwo">
+                                  Visión
+                                </a>
+                                    </h4>
+                                </div>
+                                <div id="tab-vision" class="collapse" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <p>
+                                            Nuestra misión es traer de vuelta el glamour perdurable de épocas pasadas, mientras celebramos la artesanía excepcional y la calidad superior 
+                                            que define el verdadero estilo Old Money. Cada pieza en nuestra colección ha sido seleccionada con meticuloso cuidado, asegurando que cada
+                                            cliente se sienta como un miembro distinguido de la élite.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingThree">
+                                    <h4 class="mb-0">
+                                        <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#tab-valores" aria-controls="collapseThree">
+                                  Valores
+                                </a>
+                                    </h4>
+                                </div>
+                                <div id="tab-valores" class="collapse" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <p>
+                                            En Prestigious, no solo vendemos ropa, sino que ofrecemos una experiencia de vida elevada. Nos esforzamos por capturar el espíritu de la 
+                                            aristocracia perdurable, donde la elegancia y la gracia son valores fundamentales. Desde trajes a medida hasta accesorios únicos, cada 
+                                            artículo que ofrecemos refleja nuestro compromiso con la excelencia y el buen gusto.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </p>
+                </article>
+               
+            </div>
+        </div>
+    </main>
+    <section class="ruta py-1">
+        <div class="container">
+            <div class="row">
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -92,6 +92,28 @@ body {
     padding-top: 26%;
   }
 }
+@media screen and (min-width: 589px) {
+  .srch {
+    margin-top: 2%;
+  }
+}
+@media screen and (max-width: 1256px) {
+  .navel2 {
+    padding-left: 9px;
+  }
+}
+@media screen and (min-width: 1256px) {
+  .car {
+    margin-top: -2.2px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+@media screen and (max-width: 1256px) {
+  .car {
+    margin-top: 5px;
+  }
+}
 @media screen and (min-width: 1600px) {
   .navi {
     padding-top: 2%;
@@ -105,4 +127,15 @@ body::-webkit-scrollbar{
 body::-webkit-scrollbar-thumb{
 	background: #000000; 
 	border-radius: 8px;
+}
+
+.carA:hover{
+  background-color: #ffcf91;
+  border: solid 1px black;
+}
+.btnCat:hover{
+  background-color: #ffffff;
+  border: solid 2px #000000;
+  color: #000000;
+  
 }
