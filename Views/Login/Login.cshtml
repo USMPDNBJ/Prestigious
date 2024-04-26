@@ -1,0 +1,69 @@
+@model Prestigious.Models.Login
+@{
+    ViewData["Title"] = "Login";
+}
+
+<nav style="background-color: #F5F5F5;" class="navbar navbar-expand-lg navbar-light ">
+    <div class="container-fluid">
+        <div>
+            <h1><a style="color: black;" class="nav-link active" aria-current="page" href="">Prestigious</a></h1>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"> <Strong>Inicio</Strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"><strong>Nosotros</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"><img width="40px" src="~/image/carrito.png"
+                            alt=""></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"> <strong>Iniciar Sesion</strong></a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+<br>
+
+<div class="container">
+    <h1 class="text-center mb-4">INICIAR SESION</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-controller="Login" asp-action="Index" method="post">
+                <div class="form-group">
+                    <label asp-for="Usuario" class="control-label"></label>
+                    <input asp-for="Usuario" class="form-control" />
+                    <br>
+                    <span asp-validation-for="Usuario" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Contraseña" class="control-label"></label>
+                    <input asp-for="Contraseña" type="password" class="form-control" />
+                    <span asp-validation-for="Contraseña" class="text-danger"></span>
+                </div>
+                <br>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary bg-dark">Iniciar Sesion</button>
+                </div>
+            </form>
+            <h1>@ViewData["Message"]</h1>
+                <div style="text-align: center;position: relative;top: 10px;">
+                <h5>¿Aún no tienes cuenta? <a style="color: black;" asp-action="Registrate">Registrate</a></h5>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
