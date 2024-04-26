@@ -32,7 +32,6 @@ body {
   border: 1px solid green;
 }
 */
-
 .elemento {
   opacity: 0; /* Elemento inicialmente oculto */
   animation-name: aparecer;
@@ -40,6 +39,7 @@ body {
   animation-delay: 0.2s; /* Retraso de 1 segundo para que aparezca después de desplazarse */
   animation-fill-mode: forwards; /* Mantener el último estado de la animación al finalizar */
 }
+
 .elemento2 {
   opacity: 0; /* Elemento inicialmente oculto */
   animation-name: aparecer;
@@ -65,31 +65,20 @@ body {
   
 }
 
-#fondox{
 
-  animation: fadeAnimation 7s infinite;
-}
-@keyframes fadeAnimation {
-  0%, 100% { opacity: 0; }
-  30%, 70% { opacity: 1; }
-}
-.navi {
-  padding-top: 4.6%;
-}
-
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1600px) {
   .navi {
-    padding-top: 9%;
+    padding-top: 3%;
   }
 }
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 956px) {
   .navi {
-    padding-top: 13%;
+    padding-top: 4%;
   }
 }
-@media screen and (max-width: 250px) {
+@media screen and (min-width: 1600px) {
   .navi {
-    padding-top: 26%;
+    padding-top: 2%;
   }
 }
 @media screen and (min-width: 589px) {
@@ -114,11 +103,7 @@ body {
     margin-top: 5px;
   }
 }
-@media screen and (min-width: 1600px) {
-  .navi {
-    padding-top: 2%;
-  }
-}
+
 
 body::-webkit-scrollbar{
 	width: 10px;
