@@ -20,3 +20,122 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/*
+.bpr{
+  border: 1px solid red;
+}
+.bpn{
+  border: 1px solid black;
+}
+.bpg{
+  border: 1px solid green;
+}
+*/
+
+.elemento {
+  opacity: 0; /* Elemento inicialmente oculto */
+  animation-name: aparecer;
+  animation-duration: 0.6s;
+  animation-delay: 0.2s; /* Retraso de 1 segundo para que aparezca después de desplazarse */
+  animation-fill-mode: forwards; /* Mantener el último estado de la animación al finalizar */
+}
+.elemento2 {
+  opacity: 0; /* Elemento inicialmente oculto */
+  animation-name: aparecer;
+  animation-duration: 1s;
+  animation-delay: 0.4s; /* Retraso de 1 segundo para que aparezca después de desplazarse */
+  animation-fill-mode: forwards; /* Mantener el último estado de la animación al finalizar */
+}
+@keyframes aparecer {
+  0% {
+    opacity: 0;
+    transform: translateY(50px); /* Desplazamiento inicial hacia abajo */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Sin desplazamiento al final */
+  }
+}
+
+.overlay {
+  margin-left: 55%;
+  margin-top: 10%;
+  width: 40%;
+  
+}
+
+#fondox{
+
+  animation: fadeAnimation 7s infinite;
+}
+@keyframes fadeAnimation {
+  0%, 100% { opacity: 0; }
+  30%, 70% { opacity: 1; }
+}
+.navi {
+  padding-top: 4.6%;
+}
+
+@media screen and (max-width: 767px) {
+  .navi {
+    padding-top: 9%;
+  }
+}
+@media screen and (max-width: 300px) {
+  .navi {
+    padding-top: 13%;
+  }
+}
+@media screen and (max-width: 250px) {
+  .navi {
+    padding-top: 26%;
+  }
+}
+@media screen and (min-width: 589px) {
+  .srch {
+    margin-top: 2%;
+  }
+}
+@media screen and (max-width: 1256px) {
+  .navel2 {
+    padding-left: 9px;
+  }
+}
+@media screen and (min-width: 1256px) {
+  .car {
+    margin-top: -2.2px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+@media screen and (max-width: 1256px) {
+  .car {
+    margin-top: 5px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .navi {
+    padding-top: 2%;
+  }
+}
+
+body::-webkit-scrollbar{
+	width: 10px;
+}
+
+body::-webkit-scrollbar-thumb{
+	background: #000000; 
+	border-radius: 8px;
+}
+
+.carA:hover{
+  background-color: #ffcf91;
+  border: solid 1px black;
+}
+.btnCat:hover{
+  background-color: #ffffff;
+  border: solid 2px #000000;
+  color: #000000;
+  
+}
