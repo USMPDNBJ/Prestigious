@@ -26,5 +26,7 @@ namespace Prestigious.Models
         public String? Size { get; set; }
         [NotNull]
         public String? ImageURL { get; set; }
+
+
     }
 }
