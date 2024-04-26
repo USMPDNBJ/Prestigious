@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Prestigious.Data;
+using Prestigious.Models;
 
 namespace Prestigious.Controllers
 {
@@ -14,7 +15,7 @@ namespace Prestigious.Controllers
         private readonly ILogger<CatalogoController> _logger;
         private readonly ApplicationDbContext _context;
 
-        public CatalogoController(ILogger<CatalogoController> logger,  ApplicationDbContext context)
+        public CatalogoController(ILogger<CatalogoController> logger, ApplicationDbContext context)
         {
             _logger = logger;
             _context = context;
@@ -23,10 +24,21 @@ namespace Prestigious.Controllers
         public IActionResult Index(string? searchString)
         {
             var productos = from o in _context.DataProducto select o;
-            if(!String.IsNullOrEmpty(searchString)){
+            if (!String.IsNullOrEmpty(searchString))
+            {
                 productos = productos.Where(s => s.Name.ToUpper().Contains(searchString.ToUpper()));
             }
             return View(productos.ToList());
+        }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            Producto objProduct = await _context.DataProducto.FindAsync(id);
+            if (objProduct == null)
+            {
+                return NotFound();
+            }
+            return View(objProduct);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

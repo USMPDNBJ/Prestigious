@@ -1,0 +1,45 @@
+@model Prestigious.Models.Producto
+@{
+    ViewData["Title"] = "Detalles de producto";
+}
+
+<div class="container">
+    <div class="col-sm-4 mx-auto mt-5">
+        <div class="card mb-3 text-center border-dark p-3 border-3">
+            <div class="card-body">
+                <h5 class="text-center font-weight-bold"><strong>@Html.DisplayFor(model => model.Name)</strong></h5>
+                <div class="card-img-actions">
+                    <img class="img-responsive" width="96" height="150"
+                        src="@Html.DisplayFor(model => Model.ImageURL)" />
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6 text-left">
+                        <p class="card-text"><strong>Tallas:</strong></p>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-dark btn-circle">S</button>
+                            <button type="button" class="btn btn-dark btn-circle">M</button>
+                            <button type="button" class="btn btn-dark btn-circle">L</button>
+                            <button type="button" class="btn btn-dark btn-circle">XL</button>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-left">
+                        <p class="card-text"><strong>Colores:</strong></p>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary btn-circle">A</button>
+                            <button type="button" class="btn btn-success btn-circle">V</button>
+                            <button type="button" class="btn btn-warning btn-circle">M</button>
+                            <button type="button" class="btn btn-dark btn-circle">N</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card text-dark bg-white mb-3 text-center">
+            <div class="card-body">
+
+                <h5 class="card-title">@Html.DisplayFor(model => model.Price)</h5>
+                <a class="btn btn-dark" asp-action="Add" asp-route-id="@Model.Id">Agregar al carrito</a>
+            </div>
+        </div>
+    </div>
+</div>
