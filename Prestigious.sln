@@ -1,7 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prestigious", "Prestigious.csproj", "{57192323-E56B-440A-A3A9-26B9B04CC8AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prestigious", "Prestigious.csproj", "{B27E3837-B33B-46B7-92CA-FCBFBE6583E1}"
 EndProject
 Global
     GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,3 +21,4 @@ Global
         SolutionGuid = {12F0E53F-C7BE-48FF-BF5F-C2050D2D0F3C}
     EndGlobalSection
 EndGlobal
+
