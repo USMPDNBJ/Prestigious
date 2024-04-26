@@ -1,0 +1,65 @@
+@{
+    ViewData["Title"] = "Nosotros";
+}
+<div style="">
+        <img class="" style="width: 100%; margin-top: 2%;" src="~/images/nosotros.png" alt="">
+</div>
+<div class="container-fluid bpr " style="margin-top: 5%;">
+    <div class="row elemento3" style="text-align: center;">    
+        <h1>¡Bienvenidos a nuestra exclusiva tienda de ropa Old Money!</h3>
+    </div>
+    <div class="row elemento3">
+        <div class="col-6 bpr">
+                <p style="font-size: 25px; margin-top: 30%; margin-left: 15%;">
+                    En Prestigious, nos enorgullece enormemente ofrecer una experiencia incomparable a aquellos que buscan emular la elegancia y el estilo atemporal propios de la alta sociedad. Nos inspiramos en la opulencia y el refinamiento de épocas pasadas, y como resultado, hemos creado una selección meticulosa de prendas y accesorios que encarnan a la perfección el lujo discreto y la sofisticación que caracterizan a la vieja guardia. 
+                    Nos esforzamos por ofrecer a nuestros clientes no solo productos de la más alta calidad, sino también una experiencia que evoca un sentido de prestigio y distinción inigualables.
+                </p>
+        </div>        
+        <div class="col-6 bpr" style="">
+            <img class="" style="width: 60%; margin-top: 23%; border-radius:5%; margin-left: 15%;" src="~/images/nos1.png" alt="">
+        </div>
+    </div>
+    <div class="row elemento3">
+        <div class="col-6 bpr" >
+            <img class="" style="width: 70%; margin-top: 19%; margin-bottom: 20%; border-radius:5%; margin-left: 15%;" src="~/images/nos2.jpg" alt="">
+        </div>
+        <div class="col-6 bpr" style="">
+            <p style="font-size: 25px; margin-top: 20%; margin-right: 16%;">    
+                En Prestigious, nuestra misión es ofrecer a nuestros clientes una experiencia excepcional al proporcionar prendas de alta calidad que encarnen la elegancia y el estilo atemporal. Nos dedicamos a ser el destino preferido para aquellos que buscan ropa elegante, incluyendo polos, camisas, blazers y pantalones, que reflejen la sofisticación y el lujo discreto de la alta sociedad.
+                Nos esforzamos por superar las expectativas de nuestros clientes al ofrecer productos que no solo cumplen con los más altos estándares de calidad y artesanía, sino que también transmiten un sentido de prestigio y distinción. Cada artículo que ofrecemos está cuidadosamente seleccionado para garantizar que cumpla con nuestros criterios de elegancia y durabilidad.                                            
+            </p>
+             
+        </div>
+    </div>
+
+    <div class="row elemento3" style="margin-bottom: 10%;">
+        <div class="col-6 bpr">
+                <p style="font-size: 25px; margin-top: 6%; margin-left: 15%;">
+                    Nuestra visión como empresa es ser reconocida como la marca líder en moda elegante y sofisticada, tanto a nivel nacional como internacional. Nos esforzamos por ofrecer a nuestros clientes prendas de alta calidad que reflejen su estilo y personalidad, manteniendo siempre un equilibrio entre la tradición y la innovación en el diseño y la confección de nuestras colecciones.
+                     Buscamos inspirar confianza y elegancia en cada prenda que producimos, convirtiéndonos en un referente indiscutible para aquellos que valoran la excelencia y el buen gusto en su vestimenta. Nuestro compromiso con la calidad, la ética empresarial y la satisfacción del cliente guía cada uno de nuestros pasos hacia el éxito continuo y la expansión de nuestra presencia en el mercado de la moda de lujo.
+                </p>
+        </div>        
+        <div class="col-6 bpr">
+            <img class="" style="width: 60%; margin-top: 0%; border-radius:5%;  margin-left: 16%;" src="~/images/nos3.jpg" alt="">
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var elementos = document.querySelectorAll('.elemento3');
+
+  function aparecerElementos() {
+    elementos.forEach(function(elemento) {
+      if (elemento.getBoundingClientRect().top < window.innerHeight) {
+        elemento.style.opacity = 1;
+        elemento.style.transform = "translateY(0px)";
+      }
+    });
+  }
+
+  aparecerElementos();
+
+  window.addEventListener("scroll", aparecerElementos);
+});
+</script>
