@@ -1,11 +1,8 @@
-﻿@{
+﻿﻿@{
     ViewData["Title"] = "Inicio";
 }
-<div class="navi">
-
-</div>
 <div class="" id="fondox"
-    style="background-image: url(images/fondo2.png); width: 100%; background-repeat: no-repeat; background-size: cover; padding-bottom: 10% ;">
+    style="background-image: url(images/fondo2.png); width: 100%; background-repeat: no-repeat; background-size: cover; padding-bottom: 12% ;">
     <img class="overlay elemento" src="~/images/logoInd2.png" alt="">
     <img class="overlay elemento2" style="margin-top: 0%;" src="~/images/10.png" alt="">
 </div>
@@ -25,18 +22,27 @@
                             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3"
                             aria-label="Slide 4"></button>
                     </div>
+                    <div>
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="2000">
+                            <a asp-controller="Catalogo" asp-action="Index" asp-route-searchString="polo">
                             <img src="~/images/fslide1.png" class="d-block w-100" alt="...">
+                            </a>
                         </div>
                         <div class="carousel-item" data-bs-interval="2000">
+                            <a asp-controller="Catalogo" asp-action="Index" asp-route-searchString="camisa">
                             <img src="~/images/fslide2.png" class="d-block w-100" alt="...">
+                            </a>
                         </div>
                         <div class="carousel-item" data-bs-interval="2000">
+                            <a asp-controller="Catalogo" asp-action="Index" asp-route-searchString="pantalon">
                             <img src="~/images/fslide3.png" class="d-block w-100" alt="...">
+                            </a>
                         </div>
                         <div class="carousel-item" data-bs-interval="2000">
+                            <a asp-controller="Catalogo" asp-action="Index" asp-route-searchString="blazer">
                             <img src="~/images/fslide4.png" class="d-block w-100" alt="...">
+                            </a>
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"

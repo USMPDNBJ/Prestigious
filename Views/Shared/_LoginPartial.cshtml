@@ -8,24 +8,36 @@
         <li class="nav-item">
             <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
         </li>
-        <li class="nav-item">
-            <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+        <li class="nav-item navel2">
+            <form  class="form-inline text-dark fw-bold" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button  id="logoutButton" type="submit" class="nav-link btn btn-link text-dark fw-bold">Cerrar Sesion</button>
             </form>
         </li>
     }
     else
-    {   <li class="nav-item bpr" >    
-            <a style="height: 40px;" class="nav-link text-dark bpn" asp-controller="Home" asp-action="privacy">
-                <img style="width: 30px; margin-top: -5px; " class="bpg"  src="~/images/carrito.png" alt="carrito"></a>    
+    {   <li class="nav-item navel2">
+            <form asp-controller="Catalogo" asp-action="Index" class="srch">
+                <input type="text" name="searchString"><input type="submit" value="Buscar" />
+            </form>
+        </li>     
+        <li class="nav-item bpr navel2 car">    
+            <a style="height: 40px;" class="nav-link text-dark bpn" asp-controller="Carrito" asp-action="Index">
+                <img style="width: 35px;" class="bpg"  src="~/images/carrito.png" alt="carrito"></a>    
         </li>        
-        <li class="nav-item bpr" >
-            
-            <a style="" class="nav-link text-dark fw-bold" asp-area="Identity" asp-page="/Account/Register">REGISTER</a>
-            
+        <li class="nav-item bpr navel2" >            
+            <a style="" class="nav-link text-dark fw-bold" asp-area="Identity" asp-page="/Account/Register">REGISTER</a>            
         </li>
-        <li class="nav-item bpr">
+        <li class="nav-item bpr navel2">
             <a class="nav-link text-dark fw-bold" asp-area="Identity" asp-page="/Account/Login">LOGIN</a>
         </li>
     }
 </ul>
+<script>
+      document.getElementById("logoutButton").addEventListener("click", function(event) {
+        if (confirm("¿Estás seguro de que quieres cerrar sesión?")) {
+            document.getElementById("logoutForm").submit();
+        } else {
+            event.preventDefault(); // Evita el comportamiento predeterminado del botón (enviar el formulario)
+        }
+    });
+</script>

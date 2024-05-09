@@ -10,4 +10,6 @@ namespace Prestigious.Data;
         { }
         
         public DbSet<Prestigious.Models.Contacto> DataContacto { get; set; }
+        public DbSet<Prestigious.Models.Producto> DataProducto { get; set; }
+        public DbSet<Prestigious.Models.Proforma> DataItemCarrito {get; set; }
     }
