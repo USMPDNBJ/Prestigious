@@ -5,9 +5,14 @@
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
+        <li class="nav-item bpr navel2 car">    
+            <a style="height: 40px;" class="nav-link text-dark bpn" asp-controller="Carrito" asp-action="Index">
+                <img style="width: 35px;" class="bpg"  src="~/images/carrito.png" alt="carrito"></a>    
+        </li> 
         <li class="nav-item">
             <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
         </li>
+               
         <li class="nav-item navel2">
             <form  class="form-inline text-dark fw-bold" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                 <button  id="logoutButton" type="submit" class="nav-link btn btn-link text-dark fw-bold">Cerrar Sesion</button>

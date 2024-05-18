@@ -127,7 +127,41 @@ body::-webkit-scrollbar-thumb{
 }
 .btnCat:hover{
   background-color: #ffffff;
-  border: solid 2px #000000;
+  
   color: #000000;
   
+}
+
+.notification {
+  position: fixed;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  color: #000000;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  border: 2px black solid;
+  opacity: 0;
+  animation: fade-in 0.5s ease-in-out forwards;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
