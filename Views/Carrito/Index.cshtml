@@ -13,9 +13,9 @@
 </div>
 <table style="margin-left: 145px;"> 
     <th><a class="btn btn-dark btnCat" asp-controller="Pago" 
-        asp-action="Create" asp-route-monto="@montoTotal">Pagar</a> </th>
+        asp-action="Create" asp-route-monto="@montoTotal">Pagar</a> </th>    
         
-    <th style="margin-top: 1px; padding-left: 30px;" >Total S/@montoTotal</th>
+    <th style="margin-top: 1px; padding-left: 30px;" > Total €@montoTotal.00</th>
 </table>
 
 
@@ -29,7 +29,7 @@
                 @Html.DisplayNameFor(model => listItemsCarrito.FirstOrDefault().Cantidad)
             </th>
             <th>
-                @Html.DisplayNameFor(model => listItemsCarrito.FirstOrDefault().Precio) (S/)
+                @Html.DisplayNameFor(model => listItemsCarrito.FirstOrDefault().Precio) (€)
             </th>
             <th></th>
         </tr>
@@ -44,7 +44,7 @@
                 @Html.DisplayFor(modelItem => item.Cantidad)
             </td>
             <td>
-                S/@Html.DisplayFor(modelItem => item.Precio)
+                €@Html.DisplayFor(modelItem => item.Precio)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
