@@ -6,8 +6,7 @@
         <img class="" style="width: 100%; margin-top: 3%;" src="~/images/catalogo.png" alt="">
 </div>
 
-  <div class="container">
-    <h1>@ViewData["Message"]</h1>
+  <div class="container">  
     <div class="row">
       <div class="col">
         <div id="products" class="md-3">
@@ -23,7 +22,7 @@
                 <div class="card-body">
                   <h5 class="card-title  text-uppercase" >@Html.DisplayFor(modelItem => item.Name)</h5>
                   <p class="card-text">€ @Html.DisplayFor(modelItem => item.Price)</p>
-                  <a class="btn btn-dark btnCat" asp-action="Add" asp-route-id="@item.Id">Add</a>
+                  <a class="btn btn-primary" asp-controller="Carrito" asp-action="Add" asp-route-id="@item.Id">Add</a>
                   <a class="btn btn-dark btnCat" asp-action="Details" asp-route-id="@item.Id">View</a>
                 </div>
               </div>
@@ -34,3 +33,33 @@
       </div>
     </div>
   </div>
+
+
+
+
+  <script>
+    // Obtener el mensaje de ViewData
+    
+    var message = '@TempData["Message"]';
+
+    if (message === 'n') {
+      showNotification('☛Tiene que logearse primero☚');
+    }
+
+    function showNotification(message) {
+      const notification = document.createElement('div');
+      notification.classList.add('notification');
+      notification.textContent = message;
+      document.body.appendChild(notification);
+
+      setTimeout(function() {
+        fadeOutAndRemove(notification);
+      }, 3000);
+    }
+
+    function fadeOutAndRemove(element) {
+      element.style.animation = 'fade-out 0.5s ease-in-out forwards';
+      element.style.opacity = '0';
+ // Espera 0.5 segundos antes de eliminar el elemento
+    }
+  </script>

@@ -57,3 +57,29 @@
                     </button>
                 </div>
 </div>
+<script>
+    // Obtener el mensaje de ViewData
+    
+    var message = '@TempData["Message"]';
+
+    if (message === 'n') {
+      showNotification('☛Tiene que logearse primero☚');
+    }
+
+    function showNotification(message) {
+      const notification = document.createElement('div');
+      notification.classList.add('notification');
+      notification.textContent = message;
+      document.body.appendChild(notification);
+
+      setTimeout(function() {
+        fadeOutAndRemove(notification);
+      }, 3000);
+    }
+
+    function fadeOutAndRemove(element) {
+      element.style.animation = 'fade-out 0.5s ease-in-out forwards';
+      element.style.opacity = '0';
+ // Espera 0.5 segundos antes de eliminar el elemento
+    }
+  </script>

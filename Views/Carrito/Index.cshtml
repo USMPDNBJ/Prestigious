@@ -1,0 +1,82 @@
+@model dynamic;
+@using System.Collections.Generic;
+
+@{
+    ViewData["Title"] = "Carrito";
+    IEnumerable<Prestigious.Models.Proforma> listItemsCarrito = new List<Proforma>();
+    listItemsCarrito = @Model.elementosCarrito;
+    Decimal montoTotal = @Model.montoTotal;
+}
+
+<div style="">
+        <img class="" style="width: 100%; margin-top: 2%;" src="~/images/lcarrito.png" alt="">
+</div>
+<table style="margin-left: 145px;"> 
+    <th><a class="btn btn-dark btnCat" asp-controller="Pago" 
+        asp-action="Create" asp-route-monto="@montoTotal">Pagar</a> </th>    
+        
+    <th style="margin-top: 1px; padding-left: 30px;" > Total €@montoTotal.00</th>
+</table>
+
+
+<table class="table table-hover container">
+    <thead>
+        <tr>
+            <th>
+                Nombre de la Prenda
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => listItemsCarrito.FirstOrDefault().Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => listItemsCarrito.FirstOrDefault().Precio) (€)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (Proforma item in Model.elementosCarrito) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Producto.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                €@Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+  <script>
+    // Obtener el mensaje de ViewData
+    var message = '@ViewData["Message"]';
+
+    if (message === 'n') {
+      showNotification('☛Tiene que logearse primero☚');
+    }
+
+    function showNotification(message) {
+      const notification = document.createElement('div');
+      notification.classList.add('notification');
+      notification.textContent = message;
+      document.body.appendChild(notification);
+
+      setTimeout(function() {
+        fadeOutAndRemove(notification);
+      }, 3000);
+    }
+
+    function fadeOutAndRemove(element) {
+      element.style.animation = 'fade-out 0.5s ease-in-out forwards';
+      element.style.opacity = '0';
+ // Espera 0.5 segundos antes de eliminar el elemento
+    }
+  </script>
