@@ -36,8 +36,8 @@ namespace Prestigious.Controllers
             var userIDSession = _userManager.GetUserName(User);
             if (userIDSession == null)
             {
-                ViewData["Message"] = "Por favor debe loguearse antes de agregar un producto";
-                return RedirectToAction("Index", "Catalogo");
+                TempData["Message"] = "n";
+                return RedirectToAction("Index","Home");
             }
             var items = from o in _context.DataItemCarrito select o;
             items = items.Include(p => p.Producto).
@@ -55,9 +55,9 @@ namespace Prestigious.Controllers
             var userID = _userManager.GetUserName(User);
             if (userID == null)
             {
-                _logger.LogInformation("No existe usuario");
-                ViewData["Message"] = "Por favor debe loguearse antes de agregar un producto";
-                return RedirectToAction("Index", "Catalogo");
+                 TempData["Message"] = "n";
+                _logger.LogInformation("No existe usuario");                
+                return RedirectToAction("Index","Catalogo");
             }
             else
             {
