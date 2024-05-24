@@ -1,37 +1,41 @@
 @model Prestigious.Models.Proforma
 
-<div class="container" style=" width: 100%;
+<div class="navi">
+    <div class="container" style=" width: 100%;
             max-width: 600px; 
             padding: 20px;
             background-color: #f8f9fa;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);position: relative;top:5px;">
 
-    <h1 style="position: relative;top: 50px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
-        Editar Cantidad</h1>
+        <h1
+            style="position: relative;top: 50px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+            Editar Cantidad</h1>
 
-    <br>
-    <br>
-    <div class="row">
-        <div class="col-md-4">
-            <form asp-controller="Carrito" asp-action="Edit">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="Id" />
-                <input type="hidden" asp-for="UserID" />
-                <input type="hidden" asp-for="Precio" />
-                <div class="form-group">
-                    <label asp-for="Cantidad" class="control-label"></label>
-                    <input asp-for="Cantidad" class="form-control" />
-                    <span asp-validation-for="Cantidad" class="text-danger"></span>
-                </div>
-                <br>
-                <div class="form-group">
-                    <input type="submit" value="Guardar" class="btn btn-dark" />
-                </div>
-            </form>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-controller="Carrito" asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="UserID" />
+                    <input type="hidden" asp-for="Precio" />
+                    <div class="form-group">
+                        <label asp-for="Cantidad" class="control-label"></label>
+                        <input asp-for="Cantidad" class="form-control" />
+                        <span asp-validation-for="Cantidad" class="text-danger"></span>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="submit" value="Guardar" class="btn btn-dark" />
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
 
-    <div>
-        <a asp-action="Index">Regresar</a>
+        <div>
+            <button asp-action="Index" class="btn btn-dark"
+                style="position: relative;left: 100px;top:-38px">Regresar</button>
+        </div>
     </div>
 </div>
