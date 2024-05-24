@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Prestigious.Data;
-
+using Prestigious.Integration.jsonplaceholder;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,12 +21,16 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<JsonplaceholderApiIntegration, JsonplaceholderApiIntegration>();
+
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromSeconds(1500);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+
+
 
 var app = builder.Build();
 
