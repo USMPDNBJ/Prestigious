@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,29 +10,43 @@
     <link rel="stylesheet" href="~/Prestigious.styles.css" asp-append-version="true" />
     <link rel="shortcut icon" href="images/logo4.png">
 </head>
+
 <body>
     <header>
-        <nav class="navbar navbar-expand-xl navbar-light bg-white box-shadow" style="border-bottom: 1px solid black ;position: fixed; z-index: 5; width: 100%; ">
+        <nav class="navbar navbar-expand-xl navbar-light bg-white box-shadow"
+            style="border-bottom: 1px solid black ;position: fixed; z-index: 5; width: 100%; ">
             <div class="container-fluid">
                 <img class="me-5" src="~/images/nombre.png" alt="" style=" width: 60%; max-width: 200px;">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-xl-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1 p-2 ">
                         <li class="nav-item me-5 ">
-                            <a class="nav-link text-dark text-uppercase fw-bold " asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+                            <a class="nav-link text-dark text-uppercase fw-bold " asp-area="" asp-controller="Home"
+                                asp-action="Index">Inicio</a>
                         </li>
-                            <li class="nav-item me-5">
-                            <a class="nav-link text-dark text-uppercase fw-bold" asp-area="" asp-controller="Nosotros" asp-action="Index">Nosotros</a>
-                        </li>  
+                        <li class="nav-item me-5">
+                            <a class="nav-link text-dark text-uppercase fw-bold" asp-area="" asp-controller="Nosotros"
+                                asp-action="Index">Nosotros</a>
+                        </li>
                         <li class="nav-item bpr me-5">
-                            <a class="nav-link text-dark text-uppercase fw-bold" asp-area="" asp-controller="Contacto" asp-action="Index">Contacto</a>
-                        </li> 
+                            <a class="nav-link text-dark text-uppercase fw-bold" asp-area="" asp-controller="Contacto"
+                                asp-action="Index">Contacto</a>
+                        </li>
                         <li class="nav-item bpr">
-                            <a class="nav-link text-dark text-uppercase fw-bold" asp-area="" asp-controller="Catalogo" asp-action="Index">Catálogo</a>
-                            <partial name="_MenuAdminPartial" />
+                            <a class="nav-link text-dark text-uppercase fw-bold" asp-area="" asp-controller="Catalogo"
+                                asp-action="Index">Catálogo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Todo" asp-action="Index">Todo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="TipoCambio"
+                                asp-action="Index">Tipo Cambio</a>
+                        </li>
+                        <partial name="_MenuAdminPartial" />
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
@@ -39,24 +54,25 @@
         </nav>
     </header>
     <div class="navi">
-</div>
-    <main role="main">  
+    </div>
+    <main role="main">
 
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
 
 
-    <footer class="border-top footer text-center">
-        <div class="container">
+        <footer class="border-top footer text-center">
+            <div class="container">
 
-            &copy; 2024 - Prestigious - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                &copy; 2024 - Prestigious - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
 
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+            </div>
+        </footer>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>
