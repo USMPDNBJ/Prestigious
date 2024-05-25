@@ -21,15 +21,14 @@
                         <label asp-for="Cantidad" class="control-label"></label>
                         <input asp-for="Cantidad" class="form-control" />
                     </div>
-                    <div class="form-group text-center">
-                        <button type="submit" class="btn btn-primary">Exchange</button>
+
+                    <div class="form-group text-center" style="margin-top: 15px;">
+                        <button type="submit" class="btn btn-dark">Intercambio</button>
+                        <a asp-action="Index" class="btn btn-dark">Volver</a>
                     </div>
                 </form>
-                <h1>Tipo Cambio: @ViewData["rate"]</h1>
+                <h1 style="margin-top: 20px;">Tipo Cambio: @ViewData["rate"]</h1>
                 <h1>Cambio Total: @ViewData["cambio"]</h1>
-                <div>
-                    <a asp-action="Index">Back to List</a>
-                </div>
             </div>
         </div>
     </div>
