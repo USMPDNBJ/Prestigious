@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Prestigious.Data;
-using Microsoft.OpenApi.Models;
+using Prestigious.Integration.jsonplaceholder;
+using Prestigious.Integration.currencyexchange;using Microsoft.OpenApi.Models;
 using Prestigious.Service;
 
 
@@ -22,6 +23,10 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<JsonplaceholderApiIntegration, JsonplaceholderApiIntegration>();
+
+builder.Services.AddScoped<CurrencyExchangeApiIntegration, CurrencyExchangeApiIntegration>();
 builder.Services.AddScoped<ProductoService, ProductoService>();
 builder.Services.AddSession(options =>
 {
@@ -29,6 +34,10 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+
+
+
+
 
 builder.Services.AddSwaggerGen(c =>
 {

@@ -9,6 +9,7 @@ using Prestigious.Data;
 using Prestigious.Models;
 using Prestigious.Service;
 
+
 namespace Prestigious.Controllers
 {
     public class ProductoController : Controller
@@ -61,6 +62,8 @@ namespace Prestigious.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
+
         public async Task<IActionResult> Create( Producto producto)
         {
             if (ModelState.IsValid)
@@ -76,6 +79,7 @@ namespace Prestigious.Controllers
                     // Maneja la excepción específica aquí
                     ModelState.AddModelError("", "No se pudo guardar el producto. Intente de nuevo.");
                 }
+
             }
             return View(producto);
         }
@@ -101,7 +105,9 @@ namespace Prestigious.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Price,Descripcion,Tipo,Size,ImageURL")] Producto producto)
+
         {
             if (id != producto.Id)
             {
@@ -169,4 +175,6 @@ namespace Prestigious.Controllers
             return _context.DataProducto.Any(e => e.Id == id);
         }
     }
+
 }
+
