@@ -1,19 +1,19 @@
 @model Prestigious.Models.Producto
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
 }
+<div class="navi"></div><div class="navi"></div>
 
-
-<div class="navi"></div>
-<div class="navi"></div>
 <div class="container">
-    <h1 class="">Agregar Producto</h1>
-    <hr />
+    <h1>Editar Producto</h1>
+
+<hr />
     <div class="row">
         <div class="col-md-4">
-            <form asp-action="Create" style="">
+            <form asp-action="Edit">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
                 <div class="form-group">
                     <label asp-for="Name" class="control-label"></label>
                     <input asp-for="Name" class="form-control" />
@@ -44,8 +44,9 @@
                     <input asp-for="ImageURL" class="form-control" />
                     <span asp-validation-for="ImageURL" class="text-danger"></span>
                 </div>
-                <div class="form-group" style="margin-top: 15px;">
-                    <input type="submit" value="Agregar" class="btn btn-dark" /> <a class="btn btn-dark" asp-action="Index">Volver</a>
+                <div class="form-group">
+                    <input type="submit" style="margin-top: 15px;"value="Editar" class="btn btn-dark" />
+                    <a class="btn btn-dark" style="margin-top: 15px;" asp-action="Index">Regresar</a>
                 </div>
             </form>
         </div>
@@ -56,4 +57,3 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-

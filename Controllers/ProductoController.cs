@@ -8,7 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Prestigious.Data;
 using Prestigious.Models;
 
-namespace movieappauth.Controllers
+
+namespace Prestigious.Controllers
 {
     public class ProductoController : Controller
     {
@@ -54,13 +55,24 @@ namespace movieappauth.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Price,Status,ImageURL")] Producto producto)
+
+
+        public async Task<IActionResult> Create( Producto producto)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(producto);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                 _context.Add(producto);
+                try
+                {
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (DbUpdateException ex)
+                {
+                    // Maneja la excepción específica aquí
+                    ModelState.AddModelError("", "No se pudo guardar el producto. Intente de nuevo.");
+                }
+
             }
             return View(producto);
         }
@@ -86,7 +98,9 @@ namespace movieappauth.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Price,Status,ImageURL")] Producto producto)
+
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Price,Descripcion,Tipo,Size,ImageURL")] Producto producto)
+
         {
             if (id != producto.Id)
             {
@@ -154,4 +168,6 @@ namespace movieappauth.Controllers
             return _context.DataProducto.Any(e => e.Id == id);
         }
     }
+
 }
+
