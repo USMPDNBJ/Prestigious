@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Prestigious.Data;
 using Prestigious.Models;
-
+using Prestigious.Service;
 using Microsoft.EntityFrameworkCore;
 
 namespace Prestigious.Controllers.Rest
@@ -15,9 +15,12 @@ namespace Prestigious.Controllers.Rest
     public class ProductoApiController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
-        public ProductoApiController(ApplicationDbContext context)
+        private readonly ProductoService _productoService;
+
+        public ProductoApiController(ApplicationDbContext context,ProductoService productoService)
         {
             _context = context;
+            _productoService = productoService;
         }
 
         [HttpGet]
@@ -25,8 +28,8 @@ namespace Prestigious.Controllers.Rest
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<List<Producto>>> List()
         {
-            var productos = await _context.DataProducto.ToListAsync();
-             if(productos == null)
+            var productos = await _productoService.GetAll();
+            if(productos == null)
                 return NotFound();
             return Ok(productos);
         }
