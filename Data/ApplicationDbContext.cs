@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Prestigious.Models;
 
 namespace Prestigious.Data;
 
     public class ApplicationDbContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<Prestigious.Data.ApplicationDbContext> options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         { }
         
@@ -17,4 +18,5 @@ namespace Prestigious.Data;
         public DbSet<Prestigious.Models.Pedido> Pedido  {get; set; }
 
         public DbSet<Prestigious.Models.DetallePedido> DetallePedido  {get; set; }
+
     }
