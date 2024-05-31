@@ -34,5 +34,16 @@ namespace Prestigious.Controllers.Rest
             return Ok(productos);
         }
 
+        [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<Producto>> GetProductoById(int id)
+        {
+            var producto = await _productoService.GetProductoById(id);
+            if (producto == null)
+                return NotFound();
+            return Ok(producto);
+        }
+
     }
 }

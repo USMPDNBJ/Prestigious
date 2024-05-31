@@ -24,5 +24,18 @@ namespace Prestigious.Service
                 return null;
             return await _context.DataProducto.ToListAsync();
         }
+
+        public async Task<Producto?> GetProductoById(int id)
+        {
+            if (_context.DataProducto == null)
+                return null;
+
+            var producto = await _context.DataProducto
+                .FirstOrDefaultAsync(p => p.Id == id);
+
+            return producto;
+        }
+
+
     }
 }
