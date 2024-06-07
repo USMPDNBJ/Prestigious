@@ -36,11 +36,6 @@ namespace Prestigious.Controllers
         {
             _logger.LogDebug("Ingreso a Enviar Mensaje");
 
-            // Guardar el contacto en la base de datos
-            _context.Add(objContacto);
-            _context.SaveChanges();
-            ViewData["Message"] = "Se registró el contacto";
-
             // Analizar el sentimiento del mensaje del contacto
             MLModel1.ModelInput modelInput = new MLModel1.ModelInput()
             {
@@ -48,17 +43,24 @@ namespace Prestigious.Controllers
             };
 
             MLModel1.ModelOutput prediction = _predictionEnginePool.Predict(modelInput);
+            objContacto.Predicho = prediction.PredictedLabel;
+
             ViewData["Sentimiento"] = prediction.PredictedLabel;
             ViewData["Score"] = prediction.Score[1];
 
             if (prediction.PredictedLabel == 1)
             {
-                ViewData["Mensaje"] = "Gracias por su comentario positivo.";
+                ViewData["Mensaje"] = "Este es un comentario positivo.";
             }
             else
             {
-                ViewData["Mensaje"] = "Entendemos su malestar, tomamos en cuenta su opinion y trabajaremos para mejorar.";
+                ViewData["Mensaje"] = "Este es un comentario negativo.";
             }
+
+            // Guardar el contacto en la base de datos con el sentimiento predicho
+            _context.Add(objContacto);
+            _context.SaveChanges();
+            ViewData["Message"] = "Se registró el contacto";
 
             return View("Index");
         }

@@ -239,6 +239,9 @@ namespace Prestigious.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
+                    b.Property<float>("Predicho")
+                        .HasColumnType("real");
+
                     b.HasKey("Id");
 
                     b.ToTable("t_contacto");
