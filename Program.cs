@@ -3,8 +3,15 @@ using Microsoft.EntityFrameworkCore;
 using Prestigious.Data;
 using Prestigious.Integration.jsonplaceholder;
 using Prestigious.Integration.currencyexchange;
+using Microsoft.Extensions.ML;
+using Prestigious;
+using Microsoft.OpenApi.Models;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddPredictionEnginePool<MLModel1.ModelInput, MLModel1.ModelOutput>()
+    .FromFile("MLModel1.mlnet");
 
 // Add services to the container.
 /*var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
