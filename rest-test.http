@@ -1,0 +1,5 @@
+GET http://localhost:5247/api/producto HTTP/1.1
+Accept: application/json
+
+GET http://localhost:5247/api/producto/1 HTTP/1.1
+Accept: application/json
