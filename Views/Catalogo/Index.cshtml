@@ -1,65 +1,66 @@
 @model IEnumerable<Prestigious.Models.Producto>
 @{
-    ViewData["Title"] = "Catalogo";
+  ViewData["Title"] = "Catalogo";
 }
 <div style="">
-        <img class="" style="width: 100%; margin-top: 3%;" src="~/images/catalogo.png" alt="">
+  <img class="" style="width: 100%; margin-top: 3%;" src="~/images/catalogo.png" alt="">
 </div>
 
-  <div class="container">  
-    <div class="row">
-      <div class="col">
-        <div id="products" class="md-3">
-          <div class="row">
-            @foreach (var item in Model) {
-            <div class="col-lg-4 col-sm-6" >
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div id="products" class="md-3">
+        <div class="row">
+          @foreach (var item in Model)
+          {
+            <div class="col-lg-4 col-sm-6">
               <div class="card md-3 carA">
                 <div class="card-body">
                   <div class="card-img-actions">
-                      <img src="@item.ImageURL" class="d-block image-fit w-100">
+                    <img src="@item.ImageURL" class="d-block image-fit w-100">
                   </div>
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title  text-uppercase" >@Html.DisplayFor(modelItem => item.Name)</h5>
+                  <h5 class="card-title  text-uppercase">@Html.DisplayFor(modelItem => item.Name)</h5>
                   <p class="card-text">€ @Html.DisplayFor(modelItem => item.Price)</p>
                   <a class="btn btn-primary" asp-controller="Carrito" asp-action="Add" asp-route-id="@item.Id">Add</a>
                   <a class="btn btn-dark btnCat" asp-action="Details" asp-route-id="@item.Id">View</a>
                 </div>
               </div>
             </div>
-            }
-         </div>
+          }
         </div>
       </div>
     </div>
   </div>
+</div>
 
 
 
 
-  <script>
-    // Obtener el mensaje de ViewData
-    
-    var message = '@TempData["Message"]';
+<script>
+  // Obtener el mensaje de ViewData
 
-    if (message === 'n') {
-      showNotification('☛Tiene que logearse primero☚');
-    }
+  var message = '@TempData["Message"]';
 
-    function showNotification(message) {
-      const notification = document.createElement('div');
-      notification.classList.add('notification');
-      notification.textContent = message;
-      document.body.appendChild(notification);
+  if (message === 'n') {
+    showNotification('☛Tiene que logearse primero☚');
+  }
 
-      setTimeout(function() {
-        fadeOutAndRemove(notification);
-      }, 3000);
-    }
+  function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.classList.add('notification');
+    notification.textContent = message;
+    document.body.appendChild(notification);
 
-    function fadeOutAndRemove(element) {
-      element.style.animation = 'fade-out 0.5s ease-in-out forwards';
-      element.style.opacity = '0';
- // Espera 0.5 segundos antes de eliminar el elemento
-    }
-  </script>
+    setTimeout(function () {
+      fadeOutAndRemove(notification);
+    }, 3000);
+  }
+
+  function fadeOutAndRemove(element) {
+    element.style.animation = 'fade-out 0.5s ease-in-out forwards';
+    element.style.opacity = '0';
+    // Espera 0.5 segundos antes de eliminar el elemento
+  }
+</script>

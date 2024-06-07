@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Prestigious.Models;
 using Prestigious.Data;
+using Microsoft.Extensions.ML;
+using Prestigious;
+using Microsoft.OpenApi.Models;
 
 namespace Prestigious.Controllers
 {
@@ -14,24 +17,51 @@ namespace Prestigious.Controllers
     {
         private readonly ILogger<ContactoController> _logger;
         private readonly ApplicationDbContext _context;
+        private readonly PredictionEnginePool<MLModel1.ModelInput, MLModel1.ModelOutput> _predictionEnginePool;
 
-        public ContactoController(ILogger<ContactoController> logger, ApplicationDbContext context)
+        public ContactoController(ILogger<ContactoController> logger, ApplicationDbContext context, PredictionEnginePool<MLModel1.ModelInput, MLModel1.ModelOutput> predictionEnginePool)
         {
             _logger = logger;
             _context = context;
+            _predictionEnginePool = predictionEnginePool;
         }
 
         public IActionResult Index()
-        {            
+        {
             return View();
         }
+
         [HttpPost]
         public IActionResult EnviarMensaje(Contacto objContacto)
         {
             _logger.LogDebug("Ingreso a Enviar Mensaje");
+
+            // Analizar el sentimiento del mensaje del contacto
+            MLModel1.ModelInput modelInput = new MLModel1.ModelInput()
+            {
+                Comentario = objContacto.Message // Usar el mensaje del objeto contacto
+            };
+
+            MLModel1.ModelOutput prediction = _predictionEnginePool.Predict(modelInput);
+            objContacto.Predicho = prediction.PredictedLabel;
+
+            ViewData["Sentimiento"] = prediction.PredictedLabel;
+            ViewData["Score"] = prediction.Score[1];
+
+            if (prediction.PredictedLabel == 1)
+            {
+                ViewData["Mensaje"] = "Este es un comentario positivo.";
+            }
+            else
+            {
+                ViewData["Mensaje"] = "Este es un comentario negativo.";
+            }
+
+            // Guardar el contacto en la base de datos con el sentimiento predicho
             _context.Add(objContacto);
             _context.SaveChanges();
-            ViewData["Message"]="Se registro el contacto";
+            ViewData["Message"] = "Se registró el contacto";
+
             return View("Index");
         }
 

@@ -14,7 +14,7 @@ namespace Prestigious.Controllers
     {
         private readonly ILogger<CatalogoController> _logger;
         private readonly ApplicationDbContext _context;
-         private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<IdentityUser> _userManager;
 
         public CatalogoController(ILogger<CatalogoController> logger,
             ApplicationDbContext context,
@@ -28,8 +28,9 @@ namespace Prestigious.Controllers
         public IActionResult Index(string? searchString)
         {
             var userIDSession = _userManager.GetUserName(User);
-            if(userIDSession == null){
-                ViewData["Message"] = "n";                
+            if (userIDSession == null)
+            {
+                ViewData["Message"] = "n";
             }
 
             var productos = from o in _context.DataProducto select o;
