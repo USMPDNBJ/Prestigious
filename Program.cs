@@ -2,7 +2,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Prestigious.Data;
 using Prestigious.Integration.jsonplaceholder;
-using Prestigious.Integration.currencyexchange;using Microsoft.OpenApi.Models;
+using Prestigious.Integration.currencyexchange;
+using Prestigious.Integration.nytimes;
+using Microsoft.OpenApi.Models;
 using Prestigious.Service;
 
 
@@ -25,7 +27,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<JsonplaceholderApiIntegration, JsonplaceholderApiIntegration>();
-
+builder.Services.AddScoped<NYTimesApiIntegration, NYTimesApiIntegration>();
 builder.Services.AddScoped<CurrencyExchangeApiIntegration, CurrencyExchangeApiIntegration>();
 builder.Services.AddScoped<ProductoService, ProductoService>();
 builder.Services.AddSession(options =>
