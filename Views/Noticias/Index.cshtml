@@ -1,0 +1,33 @@
+@model IEnumerable<Prestigious.Integration.nytimes.Article>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="navi"></div>
+<div class="navi"></div>
+<div class="container">
+
+    <h1 style="text-align: center;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">BUSCA TU NOTICIA AQUI</h1>
+    <form asp-controller="Noticias" asp-action="Index">
+                <input type="text" name="searchString"><input type="submit" value="Buscar" />
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
