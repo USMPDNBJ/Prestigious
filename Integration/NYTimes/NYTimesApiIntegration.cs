@@ -12,7 +12,7 @@ namespace Prestigious.Integration.nytimes
     {
         private readonly ILogger<NYTimesApiIntegration> _logger;
 
-        private const string API_URL = "https://newsapi.org/v2/everything?q=amazon&from=2024-06-06&to=2024-06-06&sortBy=popularity&apiKey=b4948be7f1874e189b9a03e942079bb9";
+        private const string API_URL = "https://newsapi.org/v2/everything?from=2024-06-01&to=2024-06-11&apiKey=0c49226bbdb8482fbe9829e2e1299a18&sortBy=popularity&language=es&q=";
 
         public NYTimesApiIntegration(ILogger<NYTimesApiIntegration> logger)
         {
@@ -22,14 +22,21 @@ namespace Prestigious.Integration.nytimes
         public async Task<List<Article>> GetNews(String query)
         {
 
-            var url = "https://newsapi.org/v2/everything?q=apple&from=2024-06-06&to=2024-06-06&sortBy=popularity&apiKey=b4948be7f1874e189b9a03e942079bb9";
+            var url = $"{API_URL}{query}";
+            List<Article> filtro = new List<Article>();
 
             using (var client = new WebClient())
             {
-
                 var json = await client.DownloadStringTaskAsync(url);
                 var apiResponse = JsonConvert.DeserializeObject<ApiResponse>(json);
-                return apiResponse.Articles;
+                filtro=apiResponse.Articles.ToList();
+
+                    foreach (var item in filtro.ToList()){
+                        if (item.UrlToImage==null){
+                            filtro.Remove(item);
+                        }
+                    }
+                return filtro;
             }
         }
     }

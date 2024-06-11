@@ -9,25 +9,48 @@
 <div class="navi"></div>
 <div class="container">
 
-    <h1 style="text-align: center;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">BUSCA TU NOTICIA AQUI</h1>
-    <form asp-controller="Noticias" asp-action="Index">
-                <input type="text" name="searchString"><input type="submit" value="Buscar" />
+    <h1 style="text-align: center;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">BUSCA TU NOTICIA AQUÍ</h1>
+    <form asp-controller="Noticias" asp-action="Index" id="searchForm">
+                <input style="width: 450px; margin-left: 400px;margin-bottom: 50px;" type="text" name="searchString" id="searchString">
+                <input type="submit" value="Buscar" />
     </form>
-    <table class="table">
-        <thead>
-            <tr>
-
-            </tr>
-        </thead>
-        <tbody>
+    <div class="row">
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Title)
-                    </td>
-                </tr>
+                <div class="card" style="width: 20rem;">
+                    <img style=" !important width: 200px; height: 200px;" src="@Html.DisplayFor(modelItem => item.UrlToImage)" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><b> @Html.DisplayFor(modelItem => item.Title)</b></h5>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Content)</p>
+                        <a href="@Html.DisplayFor(modelItem => item.Url)" class="btn btn-primary">Saber más</a>
+                        <p class="card-text" style="position: relative; bottom: 0;"><small class="text-body-secondary">Publicado: @item.PublishedAt.ToString("yyyy-MM-dd")</small></p>   
+                    </div>     
+                     
+                </div>
             }
-        </tbody>
-    </table>
+     </div>
 </div>
+ <script>
+        document.getElementById('searchForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Evita el envío tradicional del formulario
+
+            const searchString = document.getElementById('searchString').value;
+            const url = 'https://newsapi.org/v2/everything?from=2024-06-01&to=2024-06-11&apiKey=0c49226bbdb8482fbe9829e2e1299a18&sortBy=popularity&language=es&q=' + encodeURIComponent(searchString);
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+
+                // Almacena los datos en el almacenamiento de sesión del navegador
+                sessionStorage.setItem('newsData', JSON.stringify(data));
+
+                // Luego de procesar la respuesta, envía el formulario de manera normal
+                document.getElementById('searchForm').submit();
+            } catch (error) {
+                console.error('Error al realizar la solicitud:', error);
+            }
+        });
+    </script>
