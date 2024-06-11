@@ -48,7 +48,7 @@
                 @Html.DisplayFor(modelItem => item.Size)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ImageURL)
+                <img src="@item.ImageURL" class="d-block image-fit" style="width: 50px;">
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> 
