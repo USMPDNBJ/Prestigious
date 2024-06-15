@@ -50,11 +50,11 @@ namespace Prestigious.Controllers
 
             if (prediction.PredictedLabel == 1)
             {
-                ViewData["Mensaje"] = "Este es un comentario positivo.";
+                ViewData["Mensaje"] = "Muchas gracias por su comentario, aquí en Prestigious nos esforzamos por seguir mejorando su experiencia.";
             }
             else
             {
-                ViewData["Mensaje"] = "Este es un comentario negativo.";
+                ViewData["Mensaje"] = "Muchas gracias por su comentario, siempre lo tomamos en cuenta, nos esforzaremos para que no vuelva a ocurrir, muchas gracias y que tenga buen día.";
             }
 
             // Guardar el contacto en la base de datos con el sentimiento predicho
